@@ -10,7 +10,7 @@ export const Footer = () => {
                 <h6 className="main-heading">Company Information</h6>
                 <hr/>
                 <p className="text-whit">
-             4619 okeechobee blvd suit 100 <br></br>
+             okeechobee blvd suit 100 <br></br>
              Store Hours MON - SUN / 8AM - 8PM
 
                 </p>
@@ -29,8 +29,8 @@ export const Footer = () => {
     <div className="col-md-4 ">
         <h6>Contact Information</h6>
         <hr/>
-        <div><p className="text-white mb-1"> Santana</p></div>
-        <div><p className="text-white mb-1"> 561-615-4224</p></div>
+        <div><p className="text-white mb-1"> lambe academyee</p></div>
+        <div><p className="text-white mb-1"> 561-541-6108</p></div>
         
     </div>
    

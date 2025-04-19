@@ -1,0 +1,97 @@
+.service-card-wrapper {
+    
+    display: flex;
+    justify-content: flex-end; /* Pushes content to the right */
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+    padding: 0 60px;
+    background-color: #f8f9fa;
+    gap: 40px;
+   
+   
+   
+  }
+  .left-message {
+    max-width: 400px;
+    color: #333;
+    font-family: 'Segoe UI', sans-serif;
+    animation: fadeInLeft 0.6s ease-out;
+  }
+  
+  .left-message h2 {
+    font-size: 32px;
+    margin-bottom: 16px;
+    color: #007bff;
+  }
+  
+  .left-message p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* Optional entry animation */
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Make the card bigger and elegant */
+  .service-card {
+    width: 600px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    transition: transform 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .service-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .service-content {
+    padding: 32px;
+    text-align: center;
+  }
+  
+  .service-title {
+    font-size: 36px;
+    margin-bottom: 16px;
+    color: #333;
+  }
+  
+  .service-description {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+  
+  .contact-button {
+    padding: 14px 28px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-button:hover {
+    background-color: #0056b3;
+  }

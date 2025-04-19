@@ -8,23 +8,27 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 export const Navbars = () => {
     return (
         <>
-  <Navbar bg="white" variant="white">
-    <Container>
-   
-    <Nav className="me-auto">
-      <Link to="/">
-      <Nav.Link href="#home">Home</Nav.Link>
-      </Link>
-      <Link to="/About">
-      <Nav.Link href="#About">About</Nav.Link>
-      </Link>
-      <Link to="/Contact">
-      <Nav.Link href="#Contact">Contact</Nav.Link>
-      </Link>
-    </Nav>
-    </Container>
-  </Navbar>
-  
+   <Navbar bg="white" expand="lg">
+      <Container>
+        <Navbar.Brand as={Link} to="/" className="fw-bold text-dark">
+          
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav>
+            <Nav.Link as={Link} to="/" className="text-dark">
+              Home
+            </Nav.Link>
+            <Nav.Link as={Link} to="/About" className="text-dark">
+              About
+            </Nav.Link>
+            <Nav.Link as={Link} to="/Contact" className="text-dark">
+              Contact
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
 </>
     )
 }

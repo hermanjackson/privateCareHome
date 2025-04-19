@@ -1,12 +1,22 @@
 import React, {useContext} from 'react'
-import { Link,  } from "react-router-dom";
+import { Link, useHistory  } from "react-router-dom";
 import { Slider } from '../components/inc/Slider'
 import { Vmc } from '../components/inc/Vmc';
 import {Context} from "./appContext"
 
 
+
 export const Home = () => {
     const { store, } = useContext(Context);
+   
+    const history = useHistory();
+    const handleClick = (item) => {
+        history.push({
+          pathname: '/allservices',
+          state: { serviceData: item },
+        });
+      };
+   
     
     return (
         <div>
@@ -14,30 +24,88 @@ export const Home = () => {
             <Slider/>
 
 
-        <section className="section">
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12 text-center">
-                        <h3 className="main-heading">Our Services</h3>
-                        <div className="underline mx-auto"></div>
-                        <p>
-                      We offer many varieties of fresh fruits and vegetables from our market and also serve many varieties of 
-                      smoothies mixed with different vegetables and fruit that have been clinically proven to help fight diabetes, cancer, 
-                      or any kind of illnes the body has.Now serving the best mexican food around we deliver to many city's. feel free to call for more info 
-                        
-                    
-                        </p>
-                        <Link to="/aboutus" className="btn btn-warning shadow">
-                            Read More
-                        </Link>
+            <section className="section py-5 bg-light">
+  <div className="container">
+    <div className="row">
+      <div className="col-md-12 text-center">
+        <h3 className="main-heading display-5 fw-bold text-primary mb-3">
+          Empower Your Future with Our Coding Program
+        </h3>
+        <div className="underline mx-auto mb-4"></div>
+        <p className="lead text-muted px-4">
+          Ready to launch your tech career? Our programming school offers a
+          fully immersive experience designed to take you from beginner to
+          professional developer. With a hands-on curriculum, dedicated
+          instructors, and real-world projects, we don’t just teach you how to
+          code — we prepare you to thrive in the industry.
+          <br /><br />
+          Enroll today and get:
+          <ul className="list-unstyled mt-3">
+            <li>✅ 24/7 student support — whenever you need help, we’re here</li>
+            <li>✅ Personalized mentorship & 1-on-1 guidance</li>
+            <li>✅ Real-world portfolio projects to impress employers</li>
+            <li>✅ A <strong>job guarantee</strong> after successful completion</li>
+          </ul>
+          Whether you're just starting or upskilling for a career pivot, we're
+          with you every step of the way. Let’s build your future — one line of
+          code at a time.
+        </p>
+        <Link to="/Contact" className="btn btn-warning shadow mt-4">
+          Learn More
+        </Link>
+      </div>
+    </div>
 
-                    </div>
-
-                </div>
-            </div>
-            
-            
-        </section>
+    {/* New Three Columns Section */}
+    <div className="row mt-5 text-center">
+      <div className="col-md-4 mb-4">
+        <div
+          style={{
+            padding: "1.5rem",
+            borderRadius: "15px",
+            background: "linear-gradient(135deg, #00c6ff, #0072ff)",
+            color: "#fff",
+            fontWeight: "bold",
+            fontSize: "1.25rem",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          }}
+        >
+          💼 100% Job Guarantee
+        </div>
+      </div>
+      <div className="col-md-4 mb-4">
+        <div
+          style={{
+            padding: "1.5rem",
+            borderRadius: "15px",
+            background: "linear-gradient(135deg, #f7971e, #ffd200)",
+            color: "#fff",
+            fontWeight: "bold",
+            fontSize: "1.25rem",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          }}
+        >
+          🕒 24/7 Student Support
+        </div>
+      </div>
+      <div className="col-md-4 mb-4">
+        <div
+          style={{
+            padding: "1.5rem",
+            borderRadius: "15px",
+            background: "linear-gradient(135deg, #00b09b, #96c93d)",
+            color: "#fff",
+            fontWeight: "bold",
+            fontSize: "1.25rem",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          }}
+        >
+          🎯 100% Success Rate
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
         <Vmc/>
         <section className="section bg-c-light border-top">
             <div className="container">
@@ -54,7 +122,17 @@ export const Home = () => {
                     <div className="underline"></div>
                     <p>{item.description}</p>
                    
-        
+                    <p className="card-text">
+                    
+                    <button
+                      onClick={() => handleClick(item)}
+                        type="button"
+                    className="contact-button"
+                      >
+                      Learn More
+                      </button>
+                   			
+					          </p>
                 </div>
         
                 </div>
@@ -75,9 +153,6 @@ export const Home = () => {
             
             
         </section>
-
-
-        
         
 
         </div>
