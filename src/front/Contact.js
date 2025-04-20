@@ -20,17 +20,22 @@ export const Contact = () => {
         e.preventDefault();
         try {
           const response = await fetch(`${process.env.REACT_APP_API_URL}/Contact`, {
+           
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify(formData)
+           
           });
     
           const result = await response.json();
           alert(result.message);
         } catch (error) {
           console.error('Error submitting form:', error);
+          if (error.response) {
+            console.error('Backend response:', error.response.data);
+          }
           alert('Failed to submit form');
         }
       };
@@ -77,6 +82,7 @@ export const Contact = () => {
       <textarea name="message"  style={{ ...inputStyle, height: '100px', resize: 'vertical' }} placeholder="Your Message" value={formData.message} onChange={handleChange} required></textarea>
       <button type="submit" style={buttonStyle}>Send</button>
     </form>
+    
   </div>
       );
 }
