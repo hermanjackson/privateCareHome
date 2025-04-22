@@ -23,7 +23,8 @@ export const Contact = () => {
            
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              "Authorization": `Bearer ${tokenFromLogin}`
             },
             body: JSON.stringify(formData)
            
