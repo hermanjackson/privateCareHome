@@ -20,26 +20,27 @@ export const Contact = () => {
         e.preventDefault();
         try {
           const response = await fetch(`${process.env.REACT_APP_API_URL}/Contact`, {
-           
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              "Authorization": `Bearer ${tokenFromLogin}`
+              "Authorization": `Bearer ${tokenFromLogin}`,
             },
-            body: JSON.stringify(formData)
-           
+            body: JSON.stringify(formData),
           });
-    
+      
+          if (!response.ok) {
+            // If response is not OK (e.g., 400, 500 status), throw an error
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+      
           const result = await response.json();
           alert(result.message);
         } catch (error) {
           console.error('Error submitting form:', error);
-          if (error.response) {
-            console.error('Backend response:', error.response.data);
-          }
           alert('Failed to submit form');
         }
       };
+
       const formStyle = {
         backgroundColor: '#f8f9fa',
         padding: '30px',
