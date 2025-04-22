@@ -13,3 +13,17 @@
     bottom: auto;
     
 }
+.enroll-button {
+    background-color: #0069d9; /* Customize your color */
+    border-color: #0062cc;
+    font-weight: bold;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .enroll-button:hover {
+    background-color: #0056b3;
+    border-color: #004a9f;
+  }

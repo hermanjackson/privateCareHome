@@ -5,7 +5,9 @@ import { Navbars } from './components/navbars';
 import injectContext from "./front/appContext";
 import { Footer } from "./components/inc/footer.js";
 import { Contact } from "./front/Contact";
-
+import Login from "./front/Login.js";
+import {Signup} from "./front/Signup.js"
+import {ForgotPassword }from "./front/ForgotPassword.js";
 import "./App.css"
 
 
@@ -30,7 +32,16 @@ function App() {
           <Route exact path="/Contact">
             < Contact />
           </Route>
-         
+          <Route exact path="/Login">
+            <Login/>
+          </Route>
+          <Route exact path="/Signup"  >
+          <Signup/>
+          </Route>
+          < Route exact path="/forgot-password">
+            <ForgotPassword />
+          </Route>
+          
           <Route path="/allservices" component={Allservice} />
         
         </Switch>
