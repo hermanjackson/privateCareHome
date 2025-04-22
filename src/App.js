@@ -6,11 +6,10 @@ import injectContext from "./front/appContext";
 import { Footer } from "./components/inc/footer.js";
 import { Contact } from "./front/Contact";
 import Login from "./front/Login.js";
-import {Signup} from "./front/Signup.js"
-import {ForgotPassword }from "./front/ForgotPassword.js";
-import "./App.css"
-
-
+import Signup from "./front/Signup.js";
+import ForgotPassword from "./front/ForgotPassword.js";
+import ResetPassword from "./front/ResetPassword.js";
+import "./App.css";
 import { Breadcrumb } from "./components/breadCrumb";
 import { Aboutus } from "./front/About";
 import {Allservice} from "./front/Allservice.js";
@@ -38,9 +37,10 @@ function App() {
           <Route exact path="/Signup"  >
           <Signup/>
           </Route>
-          < Route exact path="/forgot-password">
+          < Route exact path="/ForgotPassword">
             <ForgotPassword />
           </Route>
+          <Route exact path="/ResetPassword/:token" component={ResetPassword} />
           
           <Route path="/allservices" component={Allservice} />
         

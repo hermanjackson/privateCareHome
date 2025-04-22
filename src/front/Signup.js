@@ -2,86 +2,72 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/auth.css';
 
-export const Signup = () => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
+const Signup = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
 
-  const [error, setError] = useState('');
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError('');
-  };
-
-  const handleSubmit = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match!");
-      return;
-    }
 
-    // Proceed with signup logic (e.g., API call)
-    console.log("Sign up successful", formData);
+    try {
+      const response = await fetch('https://lambeuniversity.herokuapp.com/Register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include', // optional
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage(data.message || 'Signup successful!');
+        // Optionally redirect to login
+      } else {
+        setMessage(data.message || 'Signup failed');
+      }
+    } catch (error) {
+      console.error('Signup Error:', error);
+      setMessage('Something went wrong. Please try again.');
+    }
   };
 
   return (
     <div className="login-container">
       <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Full Name:</label>
-          <input
-            type="text"
-            name="fullName"
-            className="form-control"
-            placeholder="Enter your full name"
-            value={formData.fullName}
-            onChange={handleChange}
-          />
-        </div>
+      <form onSubmit={handleSignup}>
         <div className="form-group">
           <label>Email:</label>
           <input
             type="email"
-            name="email"
             className="form-control"
             placeholder="Enter your email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
         <div className="form-group">
           <label>Password:</label>
           <input
             type="password"
-            name="password"
             className="form-control"
-            placeholder="Create a password"
-            value={formData.password}
-            onChange={handleChange}
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
-        <div className="form-group">
-          <label>Confirm Password:</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            className="form-control"
-            placeholder="Re-enter your password"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-          />
-        </div>
-        {error && <p className="error-text">{error}</p>}
         <button type="submit" className="btn btn-primary">Sign Up</button>
       </form>
+      {message && <p className="login-message">{message}</p>}
       <div className="login-links">
-        <Link to="/login">Already have an account? Login</Link>
+        <Link to="/Login">Already have an account? Log In</Link>
       </div>
     </div>
   );
 };
+
+export default Signup;

@@ -123,7 +123,7 @@ export const Home = () => {
                     <p>{item.description}</p>
                    
                     <p className="card-text">
-                    
+                 <Link to="/Contact">  
                     <button
                       onClick={() => handleClick(item)}
                         type="button"
@@ -131,6 +131,7 @@ export const Home = () => {
                       >
                       Learn More
                       </button>
+                  </Link> 
                    			
 					          </p>
                 </div>
