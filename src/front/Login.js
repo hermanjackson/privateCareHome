@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState  } from 'react';
+import { useHistory ,Link} from 'react-router-dom'; // For redirection
 
-const LoginForm = () => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const history = useHistory(); // To navigate to another page
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -22,6 +24,8 @@ const LoginForm = () => {
       if (response.ok) {
         // Handle success (e.g., store token, redirect)
         console.log('Login successful', data);
+        // Optionally redirect the user after successful login
+        history.push('/dashboard'); // Example of redirecting to a dashboard
       } else {
         // Handle error
         setError(data.message || 'Login failed');
@@ -32,16 +36,25 @@ const LoginForm = () => {
     }
   };
 
+  const handleForgotPassword = () => {
+    history.push('/forgot-password'); // Redirect to Forgot Password page
+  };
+
+  const handleSignUp = () => {
+    history.push('/sign-up'); // Redirect to Sign Up page
+  };
+
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+    <div className="login-container" style={styles.container}>
+      <h2 style={styles.title}>Login</h2>
+      <form onSubmit={handleLogin} style={styles.form}>
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          style={styles.input}
         />
         <input
           type="password"
@@ -49,12 +62,74 @@ const LoginForm = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          style={styles.input}
         />
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Login</button>
+        {error && <p style={styles.error}>{error}</p>}
+        <button type="submit" style={styles.button}>Login</button>
       </form>
+
+      <div style={styles.links}>
+        <Link to="/ForgotPassword"><button onClick={handleForgotPassword} style={styles.linkButton}>Forgot Password?</button></Link>
+        <Link to="/Signup"> <button onClick={handleSignUp} style={styles.linkButton}>Sign Up</button></Link>
+      </div>
     </div>
   );
 };
 
-export default LoginForm;
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    backgroundColor: '#f4f7fa',
+  },
+  title: {
+    fontSize: '2rem',
+    marginBottom: '1rem',
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '300px',
+    marginBottom: '1rem',
+  },
+  input: {
+    padding: '10px',
+    marginBottom: '10px',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
+    fontSize: '1rem',
+  },
+  button: {
+    padding: '12px',
+    backgroundColor: '#4CAF50',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    fontSize: '1rem',
+  },
+  error: {
+    color: 'red',
+    fontSize: '0.9rem',
+    marginBottom: '10px',
+  },
+  links: {
+    marginTop: '10px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '300px',
+  },
+  linkButton: {
+    backgroundColor: 'transparent',
+    color: '#007bff',
+    border: 'none',
+    cursor: 'pointer',
+    fontSize: '0.9rem',
+    textDecoration: 'underline',
+  },
+};
+
+export default Login;
