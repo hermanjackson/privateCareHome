@@ -1,74 +1,60 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/auth.css';
 
-const Login = () => {
+const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://lambeuniversity.herokuapp.com/Login', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/Login`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        credentials: 'include', // optional: if your Flask backend needs it
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        setMessage(data.message);
-        // You can redirect or store login status here if needed
+        // Handle success (e.g., store token, redirect)
+        console.log('Login successful', data);
       } else {
-        setMessage(data.message || 'Login failed');
+        // Handle error
+        setError(data.message || 'Login failed');
       }
-    } catch (error) {
-      console.error('Login Error:', error);
-      setMessage('Something went wrong. Please try again.');
+    } catch (err) {
+      setError('An error occurred');
+      console.error(err);
     }
   };
 
   return (
-    <div className="login-container">
+    <div>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
-        <div className="form-group">
-          <label>Email:</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Password:</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">Login</button>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <button type="submit">Login</button>
       </form>
-      {message && <p className="login-message">{message}</p>}
-      <div className="login-links">
-        <Link to="/Signup">Don't have an account? Sign Up</Link><br />
-        <Link to="/forgot-password">Forgot Password?</Link>
-      </div>
     </div>
   );
 };
 
-export default Login;
+export default LoginForm;

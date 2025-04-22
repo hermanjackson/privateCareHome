@@ -1,49 +1,52 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ResetPassword = () => {
-  const { token } = useParams();
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-
-  const handleReset = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch(`https://lambeuniversity.herokuapp.com/ResetPassword/${token}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ password })
-      });
-
-      const data = await res.json();
-      setMessage(data.message);
-    } catch (error) {
-      console.error('Reset Error:', error);
-      setMessage('Something went wrong.');
-    }
-  };
-
-  return (
-    <div className="login-container">
-      <h2>Reset Password</h2>
-      <form onSubmit={handleReset}>
-        <div className="form-group">
-          <label>New Password:</label>
+const ResetPassword = ({ token }) => {
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [message, setMessage] = useState('');
+  
+    const handleResetPassword = async (e) => {
+      e.preventDefault();
+  
+      try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/ResetPassword/${token}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ password }),
+        });
+  
+        const data = await response.json();
+  
+        if (response.ok) {
+          setMessage(data.message);
+        } else {
+          setError(data.message || 'Password reset failed');
+        }
+      } catch (err) {
+        setError('An error occurred');
+        console.error(err);
+      }
+    };
+  
+    return (
+      <div>
+        <h2>Reset Password</h2>
+        <form onSubmit={handleResetPassword}>
           <input
             type="password"
-            className="form-control"
+            placeholder="New Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div>
-        <button type="submit" className="btn btn-primary">Reset Password</button>
-      </form>
-      {message && <p>{message}</p>}
-    </div>
-  );
-};
-
+          {message && <p>{message}</p>}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          <button type="submit">Reset Password</button>
+        </form>
+      </div>
+    );
+  };
 export default ResetPassword;

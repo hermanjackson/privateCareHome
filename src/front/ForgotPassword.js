@@ -3,52 +3,49 @@ import '../styles/auth.css';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
   const [message, setMessage] = useState('');
 
   const handleForgotPassword = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://lambeuniversity.herokuapp.com/ForgotPassword', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/ForgotPassword`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        credentials: 'include', // optional
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ email }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        setMessage(data.message || 'Password reset instructions sent!');
+        setMessage(data.message);
       } else {
-        setMessage(data.message || 'Could not process request');
+        setError(data.message || 'Password reset failed');
       }
-    } catch (error) {
-      console.error('Forgot Password Error:', error);
-      setMessage('Something went wrong. Please try again.');
+    } catch (err) {
+      setError('An error occurred');
+      console.error(err);
     }
   };
 
   return (
-    <div className="login-container">
+    <div>
       <h2>Forgot Password</h2>
       <form onSubmit={handleForgotPassword}>
-        <div className="form-group">
-          <label>Email:</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">Send Reset Link</button>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        {message && <p>{message}</p>}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <button type="submit">Reset Password</button>
       </form>
-      {message && <p className="login-message">{message}</p>}
     </div>
   );
 };
