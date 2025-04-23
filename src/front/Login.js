@@ -1,15 +1,16 @@
-import React, { useState  } from 'react';
-import { useHistory ,Link} from 'react-router-dom'; // For redirection
+import React, { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const history = useHistory(); // To navigate to another page
+  const [isLoading, setIsLoading] = useState(false);
+  const history = useHistory();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+    setIsLoading(true);
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/Login`, {
         method: 'POST',
@@ -20,28 +21,26 @@ const Login = () => {
       });
 
       const data = await response.json();
-
       if (response.ok) {
-        // Handle success (e.g., store token, redirect)
-        console.log('Login successful', data);
-        // Optionally redirect the user after successful login
-        history.push('/dashboard'); // Example of redirecting to a dashboard
+        localStorage.setItem('authToken', data.token);
+        history.push('/dashboard');
       } else {
-        // Handle error
         setError(data.message || 'Login failed');
       }
     } catch (err) {
       setError('An error occurred');
       console.error(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleForgotPassword = () => {
-    history.push('/forgot-password'); // Redirect to Forgot Password page
+    history.push('/forgot-password');
   };
 
   const handleSignUp = () => {
-    history.push('/sign-up'); // Redirect to Sign Up page
+    history.push('/sign-up');
   };
 
   return (
@@ -65,12 +64,18 @@ const Login = () => {
           style={styles.input}
         />
         {error && <p style={styles.error}>{error}</p>}
-        <button type="submit" style={styles.button}>Login</button>
+        <button type="submit" style={styles.button} disabled={isLoading}>
+          {isLoading ? 'Logging in...' : 'Login'}
+        </button>
       </form>
 
       <div style={styles.links}>
-        <Link to="/ForgotPassword"><button onClick={handleForgotPassword} style={styles.linkButton}>Forgot Password?</button></Link>
-        <Link to="/Signup"> <button onClick={handleSignUp} style={styles.linkButton}>Sign Up</button></Link>
+        <Link to="/ForgotPassword">
+          <button onClick={handleForgotPassword} style={styles.linkButton}>Forgot Password?</button>
+        </Link>
+        <Link to="/Signup">
+          <button onClick={handleSignUp} style={styles.linkButton}>Sign Up</button>
+        </Link>
       </div>
     </div>
   );

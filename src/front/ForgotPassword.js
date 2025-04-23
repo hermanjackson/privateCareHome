@@ -4,10 +4,18 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
-
+  const [isLoading, setIsLoading] = useState(false);
+  const isValidEmail = /\S+@\S+\.\S+/;
   const handleForgotPassword = async (e) => {
     e.preventDefault();
-
+    if (!isValidEmail.test(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }if (error) {
+      document.querySelector('input[type="email"]').focus();
+    }
+    setIsLoading(true); // Disable the button while loading
+  
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/ForgotPassword`, {
         method: 'POST',
@@ -16,9 +24,9 @@ const ForgotPassword = () => {
         },
         body: JSON.stringify({ email }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
         setMessage('Check your inbox for a password reset link!');
       } else {
@@ -27,14 +35,16 @@ const ForgotPassword = () => {
     } catch (err) {
       setError('An error occurred. Please try again later.');
       console.error(err);
+    } finally {
+      setIsLoading(false); // Re-enable the button after loading
     }
   };
-
   return (
     <div style={styles.container}>
       <h2 style={styles.heading}>Forgot Your Password?</h2>
       <p style={styles.subheading}>Enter your email below and check your inbox for a reset link.</p>
       <form onSubmit={handleForgotPassword} style={styles.form}>
+      <label htmlFor="email" style={styles.label}>Email Address</label>
         <input
           type="email"
           placeholder="Your Email Address"
@@ -45,7 +55,9 @@ const ForgotPassword = () => {
         />
         {message && <p style={styles.message}>{message}</p>}
         {error && <p style={styles.error}>{error}</p>}
-        <button type="submit" style={styles.button}>Send Reset Link</button>
+        <button type="submit" style={styles.button} disabled={isLoading}>
+            {isLoading ? 'Sending...' : 'Send Reset Link'}
+        </button>
       </form>
     </div>
   );
@@ -60,6 +72,12 @@ const styles = {
     borderRadius: '8px',
     boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
+  },
+  label: {
+    fontSize: '16px',
+    fontWeight: '600',
+    color: '#333',
+    textAlign: 'left',
   },
   heading: {
     fontSize: '24px',
@@ -85,12 +103,20 @@ const styles = {
     width: '100%',
   },
   message: {
-    color: 'green',
-    fontSize: '14px',
+  color: 'green',
+  fontSize: '14px',
+  padding: '10px',
+  border: '1px solid green',
+  borderRadius: '5px',
+  backgroundColor: '#e8f8e8',
   },
   error: {
-    color: 'red',
-    fontSize: '14px',
+  color: 'red',
+  fontSize: '14px',
+  padding: '10px',
+  border: '1px solid red',
+  borderRadius: '5px',
+  backgroundColor: '#f8d7da',
   },
   button: {
     padding: '14px',
