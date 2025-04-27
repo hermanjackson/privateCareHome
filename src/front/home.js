@@ -2,7 +2,9 @@ import React, {useContext} from 'react'
 import { Link, useHistory  } from "react-router-dom";
 import { Slider } from '../components/inc/Slider'
 import { Vmc } from '../components/inc/Vmc';
-import {Context} from "./appContext"
+import {Context} from "./appContext";
+import MarqueeSection from './MarqueeSection';
+
 
 
 
@@ -160,40 +162,13 @@ export const Home = () => {
     <p className="lead mb-5">
       Our network of partners is constantly growing. With the dedicated effort of Lambe workers and our career support service, we proudly boast an employment rate of ~84% within 100 days of graduation.
       We keep hearing how our graduates' skills amaze the companies that hired them. <br />
-      <em>"I'm continually impressed by the depth of knowledge possessed by Lambe students. In fact, one of my hires from the program ended up becoming a team leader."</em>
+      <em>"I'm continually impressed by the depth of knowledge possessed by Lambe students. Join us on an exciting journey of learning and growth, where you'll gain the skills and knowledge to unlock endless possibilities for your future. Start your path today and be empowered to achieve your goals with confidence!"</em>
     </p>
+    <section className="marquee-section">
+        <MarqueeSection />
+      </section>
 
-    {/* Carousel Start */}
-    <div id="companyCarousel" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img src="your-path-to-facebook-logo.png" className="d-block mx-auto" alt="Facebook" style={{ width: "150px", height: "auto" }} />
-        </div>
-        <div className="carousel-item">
-          <img src="your-path-to-apple-logo.png" className="d-block mx-auto" alt="Apple" style={{ width: "150px", height: "auto" }} />
-        </div>
-        <div className="carousel-item">
-          <img src="your-path-to-amazon-logo.png" className="d-block mx-auto" alt="Amazon" style={{ width: "150px", height: "auto" }} />
-        </div>
-        <div className="carousel-item">
-          <img src="your-path-to-netflix-logo.png" className="d-block mx-auto" alt="Netflix" style={{ width: "150px", height: "auto" }} />
-        </div>
-        <div className="carousel-item">
-          <img src="your-path-to-google-logo.png" className="d-block mx-auto" alt="Google" style={{ width: "150px", height: "auto" }} />
-        </div>
-      </div>
-
-      {/* Carousel Controls */}
-      <button className="carousel-control-prev" type="button" data-bs-target="#companyCarousel" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#companyCarousel" data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div>
-    {/* Carousel End */}
+    
 
   </div>
 </section>
