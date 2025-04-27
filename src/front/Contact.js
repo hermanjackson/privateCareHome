@@ -20,34 +20,47 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
-    const tokenFromLogin = localStorage.getItem('token'); // ✅ Get token from localStorage
-
+  
+    const tokenFromLogin = localStorage.getItem('token'); // Get token from localStorage
+  
+    // Check if token exists
+    if (!tokenFromLogin) {
+      alert('Please log in or sign up to send a message!');
+      setIsLoading(false);
+      return;
+    }
+  
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/Contact`, {
+      const response = await fetch('http://localhost:5000/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${tokenFromLogin}`,
+          'Authorization': `Bearer ${tokenFromLogin}`, // Token for protected route
         },
         body: JSON.stringify(formData),
       });
-
+  
       const result = await response.json();
-
+  
       if (!response.ok) {
-        throw new Error(result.message || 'Failed to submit form');
+        throw new Error(result.error || 'Failed to submit form');
       }
-
+  
       alert(result.message);
+      // Clear form after submit
+      setFormData({
+        fullname: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('Failed to submit form');
+      alert(error.message || 'Failed to submit form');
     } finally {
       setIsLoading(false);
     }
   };
-
   const formStyle = {
     backgroundColor: '#f8f9fa',
     padding: '30px',

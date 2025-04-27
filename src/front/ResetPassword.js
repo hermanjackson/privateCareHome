@@ -24,12 +24,13 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/ResetPassword/${token}`, {
+      const response = await fetch(`http://localhost:5000/reset-password`, { // ✅ lowercase reset-password
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`, // ✅ Send token in Authorization header
         },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ password, confirmPassword }),
       });
 
       const data = await response.json();
@@ -39,7 +40,7 @@ const ResetPassword = () => {
         setPassword('');
         setConfirmPassword('');
       } else {
-        setError(data.message || 'Password reset failed');
+        setError(data.error || 'Password reset failed');
       }
     } catch (err) {
       setError('An error occurred. Please try again later.');
@@ -122,3 +123,9 @@ const styles = {
 };
 
 export default ResetPassword;
+
+
+
+
+
+

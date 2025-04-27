@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/Login`, {
+      const response = await fetch('http://localhost:5000/Login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ const Login = () => {
 
       const data = await response.json();
       if (response.ok) {
-        localStorage.setItem('authToken', data.token);
+        localStorage.setItem('token', data.token);
         history.push('/dashboard');
       } else {
         setError(data.message || 'Login failed');
@@ -33,14 +33,6 @@ const Login = () => {
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const handleForgotPassword = () => {
-    history.push('/forgot-password');
-  };
-
-  const handleSignUp = () => {
-    history.push('/sign-up');
   };
 
   return (
@@ -70,12 +62,8 @@ const Login = () => {
       </form>
 
       <div style={styles.links}>
-        <Link to="/ForgotPassword">
-          <button onClick={handleForgotPassword} style={styles.linkButton}>Forgot Password?</button>
-        </Link>
-        <Link to="/Signup">
-          <button onClick={handleSignUp} style={styles.linkButton}>Sign Up</button>
-        </Link>
+        <Link to="/ForgotPassword" style={styles.linkButton}>Forgot Password?</Link>
+        <Link to="/Signup" style={styles.linkButton}>Sign Up</Link>
       </div>
     </div>
   );
@@ -124,16 +112,16 @@ const styles = {
   links: {
     marginTop: '10px',
     display: 'flex',
-    justifyContent: 'space-between',
-    width: '300px',
+    flexDirection: 'column',
+    gap: '10px',
+    textAlign: 'center',
   },
   linkButton: {
     backgroundColor: 'transparent',
     color: '#007bff',
-    border: 'none',
-    cursor: 'pointer',
     fontSize: '0.9rem',
     textDecoration: 'underline',
+    cursor: 'pointer',
   },
 };
 

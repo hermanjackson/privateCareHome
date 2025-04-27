@@ -9,6 +9,8 @@ import Login from "./front/Login.js";
 import Signup from "./front/Signup.js";
 import ForgotPassword from "./front/ForgotPassword.js";
 import ResetPassword from "./front/ResetPassword.js";
+import PrivateRoute from "./front/PrivateRoute.js";
+import Dashboard from "./front/Dashboard.js";
 import "./App.css";
 import { Breadcrumb } from "./components/breadCrumb";
 import { Aboutus } from "./front/About";
@@ -27,6 +29,9 @@ function App() {
           </Route>
           <Route exact path="/About">
             <Aboutus />
+          </Route>
+          <Route path="/Dashboard" component={Dashboard}>
+            <PrivateRoute />
           </Route>
           <Route exact path="/Contact">
             < Contact />
