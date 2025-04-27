@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React ,{ useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch,Redirect  } from "react-router-dom";
 import { Home } from './front/home';
 import { Navbars } from './components/navbars';
 import injectContext from "./front/appContext";
@@ -15,8 +15,20 @@ import "./App.css";
 import { Breadcrumb } from "./components/breadCrumb";
 import { Aboutus } from "./front/About";
 import {Allservice} from "./front/Allservice.js";
+import AdminLogin from './front/AdminLogin';
+import AdminDashboard from './front/AdminDashboard.js';
+
 
 function App() {
+  const [token, setToken] = useState(localStorage.getItem('adminToken') || '');
+
+  useEffect(() => {
+    // Watch token changes
+    if (!token) {
+      localStorage.removeItem('adminToken');
+    }
+  }, [token]);
+
   
   return (
     <div className="d-flex flex-column h-100">
@@ -30,6 +42,15 @@ function App() {
           <Route exact path="/About">
             <Aboutus />
           </Route>
+          {/* Admin login page */}
+        <Route exact path="/admin/login">
+          {token ? <Redirect to="/admin/dashboard" /> : <AdminLogin setToken={setToken} />}
+        </Route>
+          {/* Admin dashboard page */}
+          <Route exact path="/admin/dashboard">
+          {token ? <AdminDashboard token={token} /> : <Redirect to="/admin/login" />}
+        </Route>
+
           <Route path="/Dashboard" component={Dashboard}>
             <PrivateRoute />
           </Route>
@@ -48,6 +69,9 @@ function App() {
           <Route exact path="/ResetPassword/:token" component={ResetPassword} />
           
           <Route path="/allservices" component={Allservice} />
+          <Route path="*">
+          <h2>404 Not Found</h2>
+        </Route>
         
         </Switch>
         <Footer/>
