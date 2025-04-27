@@ -30,7 +30,7 @@ export const Footer = () => {
             <h6 className="text-uppercase fw-bold">Contact Information</h6>
             <hr className="bg-light" />
             <p className="mb-1">Lambe Academy</p>
-            <p className="mb-1">561-541-6108</p>
+            <p className="mb-1">561-225-0443</p>
           </div>
 
         </div>
