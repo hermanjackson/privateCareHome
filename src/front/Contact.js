@@ -31,11 +31,11 @@ export const Contact = () => {
     }
   
     try {
-      const response = await fetch('http://localhost:5000/contact', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${tokenFromLogin}`, // Token for protected route
+          'Authorization': `Bearer ${tokenFromLogin}`,
         },
         body: JSON.stringify(formData),
       });

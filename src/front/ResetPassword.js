@@ -24,15 +24,14 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/reset-password`, { // ✅ lowercase reset-password
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/reset-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`, // ✅ Send token in Authorization header
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({ password, confirmPassword }),
       });
-
       const data = await response.json();
 
       if (response.ok) {

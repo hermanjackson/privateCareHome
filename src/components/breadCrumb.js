@@ -7,7 +7,7 @@ export const Breadcrumb = () => {
     <nav className="breadcrumb-bar">
       <div className="breadcrumb-container">
         <span className="breadcrumb-text">Classes starting soon</span>
-        <span className="breadcrumb-text">Call us: 561-541-6108</span>
+        <span className="breadcrumb-text">Call us: 561-225-0443</span>
         <div className="breadcrumb-socials">
           <a href="https://www.instagram.com/hurt1000/" target="_blank" rel="noopener noreferrer">
             <FaInstagramSquare />
