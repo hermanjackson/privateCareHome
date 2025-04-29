@@ -8,10 +8,7 @@ const AdminDashboard = ({ token }) => {
   const [errorUsers, setErrorUsers] = useState('');
   const [errorContacts, setErrorContacts] = useState('');
 
-  useEffect(() => {
-    fetchUsers();
-    fetchContacts();
-  }, []);
+ 
 
   const fetchUsers = async () => {
     setLoadingUsers(true);
@@ -54,7 +51,10 @@ const AdminDashboard = ({ token }) => {
       setLoadingContacts(false);
     }
   };
-
+  useEffect(() => {
+    fetchContacts();
+    fetchUsers();
+  }, [fetchContacts, fetchUsers]);  
   return (
     <div style={{ padding: '20px' }}>
       <h2>Admin Dashboard</h2>
