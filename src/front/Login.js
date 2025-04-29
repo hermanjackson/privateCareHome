@@ -12,29 +12,32 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch('${process.env.REACT_APP_API_URL}/login', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
       });
-
-      const data = await response.json();
-      if (response.ok) {
-        localStorage.setItem('token', data.token);
-        history.push('/dashboard');
-      } else {
-        setError(data.message || 'Login failed');
+  
+      if (!response.ok) {
+        // Safeguard against non-JSON responses
+        const errorData = await response.json().catch(() => null);
+        setError(errorData?.error || 'Login failed');
+        return;
       }
+  
+      const data = await response.json();
+      localStorage.setItem('token', data.token);
+      history.push('/dashboard');
     } catch (err) {
-      setError('An error occurred');
+      setError('An error occurred while logging in');
       console.error(err);
     } finally {
       setIsLoading(false);
     }
   };
-
+  
   return (
     <div className="login-container" style={styles.container}>
       <h2 style={styles.title}>Login</h2>
