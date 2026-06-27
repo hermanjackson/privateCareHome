@@ -64,7 +64,7 @@ export const Contact = () => {
   };
   const pageStyle = {
   minHeight: "100vh",
-  backgroundImage: `linear-gradient(rgba(255,255,255,.78), rgba(255,255,255,.78)), url(${contact})`,
+  backgroundImage: `linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.25)), url(${contact})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -75,40 +75,41 @@ export const Contact = () => {
 };
 
 const formStyle = {
-  backgroundColor: "rgba(255, 255, 255, 0.88)",
+  backgroundColor: "rgba(255, 255, 255, 0.18)",
+  backdropFilter: "blur(4px)",
   padding: "35px",
   borderRadius: "18px",
   width: "100%",
   maxWidth: "460px",
-  boxShadow: "0 12px 35px rgba(0, 0, 0, 0.18)",
+  boxShadow: "none",
   fontFamily: "Arial, sans-serif",
-  border: "1px solid rgba(212, 175, 55, 0.45)",
+  border: "1px solid rgba(212, 175, 55, 0.65)",
 };
 
 const inputStyle = {
   width: "100%",
   padding: "13px",
   marginBottom: "16px",
-  border: "1px solid #d6c7a1",
+  border: "1px solid #d4af37",
   borderRadius: "8px",
   fontSize: "16px",
   outline: "none",
-  backgroundColor: "rgba(255,255,255,.95)",
+  backgroundColor: "rgba(255,248,238,.75)",
+  color: "#2b1a10",
 };
 
 const buttonStyle = {
   width: "100%",
   padding: "13px",
-  backgroundColor: "#111",
-  color: "#d4af37",
-  border: "1px solid #d4af37",
+  backgroundColor: "transparent",
+  color: "#fff",
+  border: "2px solid #d4af37",
   borderRadius: "40px",
   fontSize: "16px",
   fontWeight: "700",
   cursor: "pointer",
   letterSpacing: "1px",
 };
-
 return (
   <section style={pageStyle}>
     <div className="App" style={formStyle}>
