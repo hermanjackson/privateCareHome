@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import login from "./images1/login.png"
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
@@ -41,95 +41,140 @@ const ForgotPassword = () => {
   };
   return (
     <div style={styles.container}>
-      <h2 style={styles.heading}>Forgot Your Password?</h2>
-      <p style={styles.subheading}>Enter your email below and check your inbox for a reset link.</p>
-      <form onSubmit={handleForgotPassword} style={styles.form}>
-      <label htmlFor="email" style={styles.label}>Email Address</label>
-        <input
-          type="email"
-          placeholder="Your Email Address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          style={styles.input}
-        />
-        {message && <p style={styles.message}>{message}</p>}
-        {error && <p style={styles.error}>{error}</p>}
-        <button type="submit" style={styles.button} disabled={isLoading}>
-            {isLoading ? 'Sending...' : 'Send Reset Link'}
-        </button>
-      </form>
-    </div>
+  <div style={styles.form}>
+    <h2 style={styles.heading}>Forgot Your Password?</h2>
+
+    <p style={styles.subheading}>
+      Enter your email below and we'll send you a secure password reset link.
+    </p>
+
+    <form onSubmit={handleForgotPassword} style={styles.formFields}>
+      <label htmlFor="email" style={styles.label}>
+        Email Address
+      </label>
+
+      <input
+        type="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+        style={styles.input}
+      />
+
+      {message && <p style={styles.message}>{message}</p>}
+      {error && <p style={styles.error}>{error}</p>}
+
+      <button
+        type="submit"
+        style={styles.button}
+        disabled={isLoading}
+        onMouseEnter={(e) => {
+          e.target.style.background = "#c9a35d";
+          e.target.style.color = "#fff";
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.background = "transparent";
+          e.target.style.color = "#2b1a10";
+        }}
+      >
+        {isLoading ? "Sending..." : "Send Reset Link"}
+      </button>
+    </form>
+  </div>
+</div>
   );
 };
 
 const styles = {
   container: {
-    maxWidth: '400px',
-    margin: '0 auto',
-    padding: '30px',
-    backgroundColor: '#ffffff',
-    borderRadius: '8px',
-    boxShadow: '0 6px 12px rgba(0, 0, 0, 0.1)',
-    textAlign: 'center',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "100vh",
+    backgroundImage: `linear-gradient(rgba(35,25,15,.25), rgba(35,25,15,.25)), url(${login})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    padding: "20px",
   },
-  label: {
-    fontSize: '16px',
-    fontWeight: '600',
-    color: '#333',
-    textAlign: 'left',
-  },
-  heading: {
-    fontSize: '24px',
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  subheading: {
-    fontSize: '16px',
-    color: '#555',
-    marginBottom: '20px',
-  },
+
   form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '20px',
+    width: "100%",
+    maxWidth: "430px",
+    background: "transparent",
+    padding: "40px",
+    textAlign: "center",
   },
+
+  heading: {
+    fontSize: "2.8rem",
+    fontWeight: "700",
+    color: "#2b1a10",
+    marginBottom: "10px",
+  },
+
+  subheading: {
+    fontSize: "16px",
+    color: "#5f4630",
+    marginBottom: "30px",
+    lineHeight: "1.8",
+  },
+
+  formFields: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "18px",
+  },
+
+  label: {
+    fontSize: "15px",
+    fontWeight: "600",
+    color: "#2b1a10",
+    textAlign: "left",
+  },
+
   input: {
-    padding: '12px',
-    fontSize: '16px',
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-    outline: 'none',
-    width: '100%',
+    width: "100%",
+    padding: "15px",
+    borderRadius: "8px",
+    border: "1px solid #c9a35d",
+    background: "rgba(255,248,238,.75)",
+    color: "#2b1a10",
+    fontSize: "16px",
+    outline: "none",
+    boxSizing: "border-box",
   },
-  message: {
-  color: 'green',
-  fontSize: '14px',
-  padding: '10px',
-  border: '1px solid green',
-  borderRadius: '5px',
-  backgroundColor: '#e8f8e8',
-  },
-  error: {
-  color: 'red',
-  fontSize: '14px',
-  padding: '10px',
-  border: '1px solid red',
-  borderRadius: '5px',
-  backgroundColor: '#f8d7da',
-  },
+
   button: {
-    padding: '14px',
-    fontSize: '16px',
-    backgroundColor: '#007bff',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s',
+    width: "100%",
+    padding: "15px",
+    background: "transparent",
+    color: "#2b1a10",
+    border: "2px solid #c9a35d",
+    borderRadius: "40px",
+    fontSize: "17px",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "all .3s ease",
   },
-  buttonHover: {
-    backgroundColor: '#0056b3',
+
+  message: {
+    color: "#2e7d32",
+    background: "rgba(255,255,255,.8)",
+    border: "1px solid #2e7d32",
+    borderRadius: "8px",
+    padding: "12px",
+    fontWeight: "600",
+  },
+
+  error: {
+    color: "#b22222",
+    background: "rgba(255,255,255,.8)",
+    border: "1px solid #b22222",
+    borderRadius: "8px",
+    padding: "12px",
+    fontWeight: "600",
   },
 };
 

@@ -3,7 +3,11 @@ import { Link, useHistory  } from "react-router-dom";
 import { Slider } from '../components/inc/Slider'
 import { Vmc } from '../components/inc/Vmc';
 import {Context} from "./appContext";
-import MarqueeSection from './MarqueeSection';
+import wig1 from './images1/wig1.png';
+import wig2 from './images1/wig2.png';
+import "../styles/home.css";
+import comingsoon from "./images1/comingsoon.png";
+
 
 
 
@@ -26,155 +30,165 @@ export const Home = () => {
             <Slider/>
 
 
-            <section className="section py-5 bg-light">
+           <section className="section py-5 bg-light">
   <div className="container">
-    <div className="row">
-      <div className="col-md-12 text-center">
-        <h3 className="main-heading display-5 fw-bold text-primary mb-3">
-          Empower Your Future with Our Coding Program
+    <div className="row text-center mb-4">
+      <div className="col-md-12">
+        <h3 className="main-heading display-5 fw-bold text-dark mb-3">
+          Shop Our Luxury Hair Collection
         </h3>
         <div className="underline mx-auto mb-4"></div>
-        <p className="lead text-muted px-4">
-          Ready to launch your tech career? Our programming school offers a
-          fully immersive experience designed to take you from beginner to
-          professional developer. With a hands-on curriculum, dedicated
-          instructors, and real-world projects, we don’t just teach you how to
-          code — we prepare you to thrive in the industry.
-          <br /><br />
-          Enroll today and get:
-          <ul className="list-unstyled mt-3">
-            <li>✅ 24/7 student support — whenever you need help, we’re here</li>
-            <li>✅ Personalized mentorship & 1-on-1 guidance</li>
-            <li>✅ Real-world portfolio projects to impress employers</li>
-            <li>✅ A <strong>job guarantee</strong> after successful completion</li>
-          </ul>
-          Whether you're just starting or upskilling for a career pivot, we're
-          with you every step of the way. Let’s build your future — one line of
-          code at a time.
+        <p className="lead text-muted">
+          Choose from premium frontal wigs and soft, silky single bundles.
         </p>
-        <Link to="/Contact" className="btn btn-warning shadow mt-4">
-          Learn More
-        </Link>
       </div>
     </div>
 
-    {/* New Three Columns Section */}
-    <div className="row mt-5 text-center">
-      <div className="col-md-4 mb-4">
-        <div
-          style={{
-            padding: "1.5rem",
-            borderRadius: "15px",
-            background: "linear-gradient(135deg, #00c6ff, #0072ff)",
-            color: "#fff",
-            fontWeight: "bold",
-            fontSize: "1.25rem",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-          }}
-        >
-          💼 100% Job Guarantee
-        </div>
+    <div className="row text-center">
+      <div className="col-md-6 mb-4">
+        <Link to="/wig" className="text-decoration-none">
+          <div className="hair-card shadow">
+            <img src={wig1} alt="Frontal Wigs" className="hair-card-img" />
+          </div>
+        </Link>
       </div>
-      <div className="col-md-4 mb-4">
-        <div
-          style={{
-            padding: "1.5rem",
-            borderRadius: "15px",
-            background: "linear-gradient(135deg, #f7971e, #ffd200)",
-            color: "#fff",
-            fontWeight: "bold",
-            fontSize: "1.25rem",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-          }}
-        >
-          🕒 24/7 Student Support
-        </div>
-      </div>
-      <div className="col-md-4 mb-4">
-        <div
-          style={{
-            padding: "1.5rem",
-            borderRadius: "15px",
-            background: "linear-gradient(135deg, #00b09b, #96c93d)",
-            color: "#fff",
-            fontWeight: "bold",
-            fontSize: "1.25rem",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-          }}
-        >
-          🎯 100% Success Rate
-        </div>
+
+      <div className="col-md-6 mb-4">
+        <Link to="/bundle" className="text-decoration-none">
+          <div className="hair-card shadow">
+            <img src={wig2} alt="Single Bundles" className="hair-card-img" />
+          </div>
+        </Link>
       </div>
     </div>
   </div>
 </section>
         <Vmc/>
-        <section className="section bg-c-light border-top">
-            <div className="container">
-                <div className="row">
-                <h3 className="main-heading text-center">Our Services</h3>
-                        <div className="underline mx-auto"></div>
-                        {store.allServices.map((item, index) =>{
-             return(
-                <div className="col-md-4 " key={index}>
-                <div className="card shawdow">
-                <img src={item.image} className="w-100 border-bottom" alt="services"/>
-                <div className="card-body">
-                    <h6>{item.label}</h6>
-                    <div className="underline"></div>
-                    <p>{item.description}</p>
-                   
-                    <p className="card-text">
-                 <Link to="/Contact">  
-                    <button
-                      onClick={() => handleClick(item)}
-                        type="button"
-                    className="contact-button"
-                      >
-                      Learn More
-                      </button>
-                  </Link> 
-                   			
-					          </p>
-                </div>
-        
-                </div>
-               
-        
-            </div>
-           
+        <section className="section bg-c-light border-top py-5">
+  <div className="container">
+    <div className="row">
+      <h3 className="main-heading text-center">Shop Now</h3>
+      <div className="underline mx-auto mb-4"></div>
 
-             )
-         })};
-      
-        
-     
-     
-    
+      {store.allServices.map((item, index) => {
+        return (
+          <div className="col-md-4 mb-5" key={index}>
+            <div className="product-card">
+              <img
+                src={item.image}
+                className="product-image"
+                alt={item.label}
+              />
+
+              <div className="product-content">
+                <h4>{item.label}</h4>
+
+                <p>{item.description}</p>
+
+                <Link to="/Contact">
+                  <button
+                    onClick={() => handleClick(item)}
+                    className="shop-btn"
+                  >
+                    Shop Now
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
-            </div>
-            
-            
-        </section>
-        <section className="section bg-white py-5">
+  </div>
+</section>
+       <section
+  className="coming-soon-section"
+  style={{
+    backgroundImage: `linear-gradient(rgba(25,18,12,0.45), rgba(25,18,12,0.45)), url(${comingsoon})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "100px 20px",
+  }}
+>
   <div className="container text-center">
-    <h1 className="mb-4">Who is hiring our students?</h1>
-    <p className="lead mb-5">
-      Our network of partners is constantly growing. With the dedicated effort of Lambe workers and our career support service, we proudly boast an employment rate of ~84% within 100 days of graduation.
-      We keep hearing how our graduates' skills amaze the companies that hired them. <br />
-      <em>"I'm continually impressed by the depth of knowledge possessed by Lambe students. Join us on an exciting journey of learning and growth, where you'll gain the skills and knowledge to unlock endless possibilities for your future. Start your path today and be empowered to achieve your goals with confidence!"</em>
-    </p>
-    <section className="marquee-section">
-        <MarqueeSection />
-      </section>
 
-    
+    <h1
+      style={{
+        fontSize: "4rem",
+        fontWeight: "700",
+        color: "#ffffff",
+        letterSpacing: "4px",
+        marginBottom: "20px",
+      }}
+    >
+      NEW HAIR COLLECTION
+    </h1>
+
+    <h2
+      style={{
+        color: "#D4AF37",
+        fontSize: "2.8rem",
+        fontWeight: "600",
+        marginBottom: "35px",
+      }}
+    >
+      COMING SOON
+    </h2>
+
+    <p
+      style={{
+        maxWidth: "700px",
+        margin: "0 auto",
+        color: "#ffffff",
+        fontSize: "1.2rem",
+        lineHeight: "2",
+      }}
+    >
+      Discover our upcoming collection of luxury hair bundles,
+      lace front wigs, closures, frontals, premium hair care,
+      and professional beauty products designed to help you
+      look and feel your absolute best.
+
+      <br /><br />
+
+      Beautiful styles. Premium quality.
+      Luxury you deserve.
+    </p>
+
+    <button
+      className="mt-5"
+      style={{
+        background: "transparent",
+        color: "#fff",
+        border: "2px solid #D4AF37",
+        padding: "14px 45px",
+        borderRadius: "40px",
+        fontSize: "18px",
+        fontWeight: "600",
+        letterSpacing: "1px",
+        transition: "0.3s ease",
+        cursor: "pointer",
+      }}
+      onMouseEnter={(e) => {
+        e.target.style.background = "#D4AF37";
+        e.target.style.color = "#2b1a10";
+      }}
+      onMouseLeave={(e) => {
+        e.target.style.background = "transparent";
+        e.target.style.color = "#fff";
+      }}
+    >
+      Coming Soon
+    </button>
 
   </div>
 </section>
+  </div>
 
-        
-
-        </div>
     )
 }

@@ -1,9 +1,9 @@
 
 
 
-import image12 from "../front/images1/school8.png"
-import image13 from "../front/images1/school10.jpg"
-import image15 from "../front/images1/school9.png"
+import image12 from "../front/images1/hairproducts.png"
+import image13 from "../front/images1/frontals.jpg"
+import image15 from "../front/images1/wigs.jpg"
 
 
 const  getState = ({ getStore, getActions, setStore }) => {
@@ -16,21 +16,21 @@ const  getState = ({ getStore, getActions, setStore }) => {
 				
 				{
 					id:2,
-					label:"Java",
-					description:"fullstack java course teaching frontend and backend ",
+					label:"hairproducts",
+					description:"amazing hair products ",
 					image:image12
 				},
 				{
 					id:3,
-					label:"FullStack",
-					description:" fullstack programming course teaching frontend and backend ",
+					label:"frontals",
+					description:" luxury frontals ",
 					image:image13
 				},
 				
 				{
 					id:5,
-					label:"Online",
-					description:" fully online move at your pace ",
+					label:"wigs",
+					description:" luxury wigs ",
 					image:image15
 				},
 				

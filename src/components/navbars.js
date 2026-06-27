@@ -1,39 +1,58 @@
-import React from 'react';
+import React from "react";
+import "../styles/nav.css"
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, Carousel } from "react-bootstrap";
+import carousel1 from "../front/images1/carousel1.png";
+import carousel2 from "../front/images1/carousel2.png";
+import carousel3 from "../front/images1/carousel3.png";
+import { FaShoppingCart, FaSearch, FaUser } from "react-icons/fa";
 
 export const Navbars = () => {
   return (
-    <Navbar bg="white" expand="lg" className="shadow-sm py-3">
-      <Container>
-        <Navbar.Brand as={Link} to="/" className="fw-bold text-primary fs-4">
-         
-        </Navbar.Brand>
+    <div className="navbar-carousel-wrapper">
+      <Carousel controls={false} indicators={false} fade interval={3000}>
+        {[carousel1, carousel2, carousel3].map((img, index) => (
+          <Carousel.Item key={index}>
+            <img src={img} alt="" className="navbar-bg-img" />
+          </Carousel.Item>
+        ))}
+      </Carousel>
 
-        <Navbar.Toggle aria-controls="navbar-nav" />
+       <Navbar expand="lg" className="navbar-custom">
+        <Container fluid>
+          <Navbar.Brand as={Link} to="/" className="brand-logo">
+            SAIR
+          </Navbar.Brand>
 
-        <Navbar.Collapse id="navbar-nav" className="justify-content-end">
-          <Nav className="align-items-center gap-3">
-            <Nav.Link as={Link} to="/" className="text-dark nav-link-custom">
-              Home
-            </Nav.Link>
-            <Nav.Link as={Link} to="/About" className="text-dark nav-link-custom">
-              About
-            </Nav.Link>
-            <Nav.Link as={Link} to="/Contact" className="text-dark nav-link-custom">
-              Contact
-            </Nav.Link>
+          <Navbar.Toggle aria-controls="navbar-nav" />
 
-            <Nav.Link
-              as={Link}
-              to="/login"
-              className="btn btn-outline-primary px-3 py-1 fw-semibold rounded-pill"
-            >
-              Login / Signup
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          <Navbar.Collapse id="navbar-nav">
+            <Nav className="mx-auto nav-center">
+              <Nav.Link as={Link} to="/About">About</Nav.Link>
+              <Nav.Link as={Link} to="/Contact">Contact</Nav.Link>
+              <Nav.Link as={Link} to="/Login">Login</Nav.Link>
+              <Nav.Link as={Link} to="/hair-products">Hair Products</Nav.Link>
+              <Nav.Link as={Link} to="/terms-and-policy">Terms & Policy</Nav.Link>
+              <Nav.Link as={Link} to="/faq">FAQ</Nav.Link>
+              <Nav.Link as={Link} to="/shop-all">Shop All</Nav.Link>
+            </Nav>
+
+            <Nav className="nav-icons">
+              <Nav.Link as={Link} to="/search">
+                <FaSearch />
+              </Nav.Link>
+
+              <Nav.Link as={Link} to="/cart">
+                <FaShoppingCart />
+              </Nav.Link>
+
+              <Nav.Link as={Link} to="/Login">
+                <FaUser />
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
   );
 };

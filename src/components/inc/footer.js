@@ -1,44 +1,134 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import "../../styles/footer.css";
 
 export const Footer = () => {
   return (
-    <footer className="bg-dark text-white py-5">
-      <div className="container">
-        <div className="row">
+    <footer
+  className="footer-section text-light py-5"
+  style={{
+    background: "#111",
+    borderTop: "1px solid #d4af37",
+  }}
+>
+  <div className="container">
 
-          <div className="col-md-4 mb-4">
-            <h6 className="text-uppercase fw-bold">Company Information</h6>
-            <hr className="bg-light" />
-            <p>
-              Okeechobee Blvd Suite 100<br />
-              Store Hours: MON - SUN / 8AM - 8PM
-            </p>
-          </div>
+    <div className="row">
 
-          <div className="col-md-4 mb-4">
-            <h6 className="text-uppercase fw-bold">Quick Links</h6>
-            <hr className="bg-light" />
-            <ul className="list-unstyled">
-              <li><Link to="/" className="text-white text-decoration-none">Home</Link></li>
-              <li><Link to="/aboutsus" className="text-white text-decoration-none">About</Link></li>
-              <li><Link to="/contact" className="text-white text-decoration-none">Contact</Link></li>
-            </ul>
-          </div>
+      {/* Brand */}
+      <div className="col-lg-4 mb-4">
+        <h2
+          style={{
+            color: "#d4af37",
+            fontWeight: "700",
+            letterSpacing: "2px",
+          }}
+        >
+          SAIR
+        </h2>
 
-          <div className="col-md-4 mb-4">
-            <h6 className="text-uppercase fw-bold">Contact Information</h6>
-            <hr className="bg-light" />
-            <p className="mb-1">Lambe Academy</p>
-            <p className="mb-1">561-225-0443</p>
-          </div>
-
-        </div>
-
-        <div className="text-center mt-4 text-secondary small">
-          &copy; {new Date().getFullYear()} Lambe Academy. All rights reserved.
-        </div>
+        <p className="text-light mt-3">
+          Premium Hair Bundles, Frontals, Wigs,
+          Hair Care Products and Beauty Essentials.
+          Luxury quality designed to help you
+          look and feel your best.
+        </p>
       </div>
-    </footer>
+
+      {/* Shop */}
+      <div className="col-lg-4 mb-4">
+        <h5 style={{ color: "#d4af37" }}>
+          Shop
+        </h5>
+
+        <ul className="list-unstyled mt-3">
+
+          <li className="mb-2">
+            <Link to="/" className="footer-link">
+              Home
+            </Link>
+          </li>
+
+          <li className="mb-2">
+            <Link to="/shop-all" className="footer-link">
+              Shop All
+            </Link>
+          </li>
+
+          <li className="mb-2">
+            <Link to="/wig" className="footer-link">
+              Wigs
+            </Link>
+          </li>
+
+          <li className="mb-2">
+            <Link to="/bundle" className="footer-link">
+              Hair Bundles
+            </Link>
+          </li>
+
+          <li className="mb-2">
+            <Link to="/products" className="footer-link">
+              Hair Products
+            </Link>
+          </li>
+
+        </ul>
+      </div>
+
+      {/* Customer Care */}
+      <div className="col-lg-4 mb-4">
+
+        <h5 style={{ color: "#d4af37" }}>
+          Customer Care
+        </h5>
+
+        <ul className="list-unstyled mt-3">
+
+          <li className="mb-2">
+            <Link to="/contact" className="footer-link">
+              Contact Us
+            </Link>
+          </li>
+
+          <li className="mb-2">
+            <Link to="/faq" className="footer-link">
+              FAQ
+            </Link>
+          </li>
+
+          <li className="mb-2">
+            <Link to="/terms-and-policy" className="footer-link">
+              Terms & Privacy
+            </Link>
+          </li>
+
+          <li className="mt-3">
+            <strong>Email</strong><br />
+            support@sairhair.com
+          </li>
+
+          <li className="mt-2">
+            <strong>Phone</strong><br />
+            (***) ***-****
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <hr style={{ borderColor: "#444" }} />
+
+    <div className="text-center">
+      <small style={{ color: "#aaa" }}>
+        © {new Date().getFullYear()} SAIR Hair Bundles & Products.
+        All Rights Reserved.
+      </small>
+    </div>
+
+  </div>
+</footer>
   );
 };

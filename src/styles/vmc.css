@@ -19,3 +19,30 @@ image-effect {
         transform: translateY(0);
     }
 }
+.image-effect {
+  transition: all 0.4s ease;
+  border-radius: 18px;
+}
+
+.image-effect:hover {
+  transform: scale(1.04);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
+}
+
+.section h2 {
+  color: #111;
+}
+
+.section p {
+  line-height: 1.8;
+}
+.vmc-section {
+    background-image:
+        linear-gradient(rgba(255,255,255,.88), rgba(255,255,255,.88)),
+        url("../front/images1/backgroundvmv.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
