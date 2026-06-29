@@ -34,7 +34,7 @@ const AdminDashboard = ({ token }) => {
   const fetchContacts = async () => {
     setLoadingContacts(true);
     try {
-      const res = await fetch('${process.env.REACT_APP_API_URL}/admin/contacts', {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/admin/contacts`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
