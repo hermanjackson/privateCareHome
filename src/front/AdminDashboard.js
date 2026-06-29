@@ -54,7 +54,7 @@ const AdminDashboard = ({ token }) => {
   useEffect(() => {
     fetchContacts();
     fetchUsers();
-  }, [fetchContacts, fetchUsers]);  
+  }, []);  
   return (
     <div style={{ padding: '20px' }}>
       <h2>Admin Dashboard</h2>
