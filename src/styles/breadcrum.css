@@ -1,10 +1,11 @@
-
 .breadcrumb-bar {
-  background-color: #000;      /* or whatever background you're using */
-  min-height: 55px;            /* Taller than the default */
+  background: linear-gradient(90deg, #6B1F2A 0%, #8A2E3B 100%);
+  min-height: 60px;
   display: flex;
-  align-items: center;         /* Vertically centers the content */
+  align-items: center;
   padding: 0 20px;
+  border-bottom: 3px solid #D4AF37;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
 }
 
 .breadcrumb-container {
@@ -17,22 +18,24 @@
 }
 
 .breadcrumb-text {
-  color: #ffffff;              /* Bright white text */
+  color: #fff;
   font-size: 16px;
   font-weight: 500;
+  letter-spacing: .4px;
 }
 
 .breadcrumb-socials {
   display: flex;
-  gap: 15px;
+  gap: 18px;
 }
 
 .breadcrumb-socials a {
-  color: #ffffff;              /* White social icons */
+  color: #fff;
   font-size: 22px;
-  transition: color 0.3s ease;
+  transition: all .3s ease;
 }
 
 .breadcrumb-socials a:hover {
-  color: #d4af37;              /* Gold on hover */
+  color: #D4AF37;
+  transform: translateY(-2px);
 }

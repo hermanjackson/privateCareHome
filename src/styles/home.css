@@ -1,302 +1,284 @@
-*{
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-.hero_outer {
- 
-    background: lightgrey;
-     padding: 0 0;
-     height: 400px;
-     width: 100%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     
-    
-     background-size: cover;
-    
-     background-repeat: no-repeat;
-     background-size: 1400px 400px;
-     
-     
-   }
-  .main__btn {
-    font-size: 1.8rem;
-    background: #13131313;
-  
-    padding: 20px 60px;
-    border: none;
-    border-radius: 4px;
-    margin-top: 2rem;
-    cursor: pointer;
-    position: relative;
-  
-    outline: none;
-  }
-  .main__btn a {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-    text-decoration: none;
-  }
-  .main__btn:after {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-   background: #232526;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
-  }
-  .main__btn:hover {
-    color: #fff;
-  }
-  .main__btn:hover:after {
-    width: 100%;
-  }
-  .hero{
-  
-   background: #13131313;
-   width: 100%;
-   
-   
-    
-   }
-   .hero__container {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     max-width: 1200px;
-     margin: 0 auto;
-     height: 200px;
-     text-align: center;
-     padding: 30px;
-    
-   
-   }
-   .hero__heading {
-     font: 100px;
-     margin-bottom: 24px;
-     color: #131313;
-   }
-   .main__btn {
-    padding: 12px 36px;
-    margin: 2.5rem 0;
-  }
-  
-.hero__description {
-    color: #131313;
-    height: 80px;
-    width: 400px;
 
-   
-  
-    
+/* Hero Section */
+.hero_outer {
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.card_images{
-    position: absolute;
-    top: 80px;
-    height: 200px;
-    width: 200px;
-    border-radius: 7px;
+
+.hero {
+  width: 100%;
+  background: transparent;
 }
-  .hair-card {
+
+.hero__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.hero__heading {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 24px;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+}
+
+.hero__description {
+  max-width: 700px;
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* Main Button */
+.main__btn {
+  padding: 12px 36px;
+  margin: 2.5rem 0;
+  font-size: 1.2rem;
+  background: transparent;
+  border: 2px solid #d4af37;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.main__btn a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.main__btn:hover {
+  background: #d4af37;
+}
+
+.main__btn:hover a {
+  color: #2b1a10;
+}
+
+/* Section */
+.section {
+  background: transparent;
+}
+
+/* Product / Service Cards */
+.product-card {
+  background: #fff;
   border-radius: 18px;
   overflow: hidden;
-  background: white;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+  height: 100%;
+  transition: 0.35s ease;
 }
 
-.hair-card:hover {
+.product-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  object-position: center;
+  background: #f8f3ee;
+  padding: 10px;
+  display: block;
+  transition: 0.35s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.01);
+}
+
+.product-content {
+  padding: 25px;
+  text-align: center;
+}
+
+.product-content h4 {
+  margin-top: 10px;
+  font-weight: 700;
+  color: #6b1f2a;
+}
+
+.product-content p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Shop / Learn More Button */
+.shop-btn {
+  background: #6b1f2a;
+  color: #fff;
+  border: 2px solid #6b1f2a;
+  padding: 10px 28px;
+  border-radius: 40px;
+  font-weight: 600;
+  transition: 0.35s ease;
+}
+
+.shop-btn:hover {
+  background: #d4af37;
+  border-color: #d4af37;
+  color: #2b1a10;
+}
+
+/* Hair Card / Two Large Image Cards */
+.hair-card {
+  position: relative;
+  width: 100%;
+  height: 330px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #000;
 }
 
 .hair-card-img {
   width: 100%;
-  height: 420px;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
+  transition: transform 0.4s ease;
 }
-  
-  
+
+.hair-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.hair-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px;
+}
+
+.hair-card-overlay h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.hair-card-overlay p {
+  font-size: 1rem;
+  margin-bottom: 18px;
+}
+
+.hair-card-overlay span {
+  border: 2px solid #fff;
+  padding: 10px 28px;
+  border-radius: 40px;
+  font-weight: 700;
+}
+
+.hair-card:hover .hair-card-img {
+  transform: scale(1.08);
+}
+
+/* Services Section */
 .services {
- 
-  background:  #13131313;
-    display: flex;
-   
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 10rem 0;
-  
-  }
-  
-  
-  .services h1 {
-    background: #232526;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #f8f3ee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 6rem 0;
+}
+
+.services__wrapper {
   position: relative;
-  left: 50%;
-  bottom: 250px;
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-    margin-bottom: 5rem;
-    font-size: 2.5rem;
-  }
-  .services_title{
-    width: 300px ;
-    position: absolute;
-
-  }
-  
-  .services__wrapper {
-    position: relative;
-    right: 50px;
-    
-   
-   
-  
-  
-  }
-  .card-btn{
-   position: absolute;
-    top: 80%;
-    right: 80px;
-    border-radius: 15px;
-    height: 60px;
-    width: 150px;
-    background: #13131313;
-    color: #fff;
-  }
-  .services__card {
-    margin: 10px;
-    height: 425px;
-    width: 300px;
-    border-radius: 4px;
-    display: flex;
-   
-    justify-content: center;
-    color: #fff;
-    background: #13131313;
-    
- 
-    transition: 0.3s ease-in;
-  }
-  
- 
-  
-  .services__card h2 {
-    text-align: center;
-  }
-  .services__card p {
-    text-align: center;
-    margin-top: 24px;
-    font-size: 20px;
-  }
- 
-  
-  .services__card button:hover {
-    cursor: pointer;
-  }
-  .services__card :hover {
-    transform: scale(1.075);
-    transition: 0.3s ease-in;
-    cursor: pointer;
-  }
-  
-  .list_cont{
-    height: 80px;
-    width: 100%;
-    display: flex;
-    align-self: flex-start;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-   
-   
-
-  }
-  .contact-button {
-    padding: 14px 28px;
-    background-color: #007bff;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    border-radius: 40px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .contact-button:hover {
-    background-color: #0056b3;
-  }
-  /* Entire Section */
-.section {
-    background: transparent;
 }
 
-/* Product Card */
-.product-card {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    transition: .35s ease;
-    text-align: center;
+.services__card {
+  margin: 10px;
+  min-height: 425px;
+  width: 300px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  background: #6b1f2a;
+  transition: 0.3s ease-in;
 }
 
-/* Hover */
-.product-card:hover {
-    transform: translateY(-8px);
+.services__card:hover {
+  transform: scale(1.04);
+  cursor: pointer;
 }
 
-/* Product Image */
-.product-image {
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-    border-radius: 18px;
-    transition: .35s ease;
+.services__card h2 {
+  text-align: center;
 }
 
-.product-card:hover .product-image {
-    transform: scale(1.02);
+.services__card p {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 20px;
 }
 
-/* Text */
-.product-content h4 {
-    margin-top: 18px;
-    font-weight: 700;
-    color: #222;
+/* Contact Button */
+.contact-button {
+  padding: 14px 28px;
+  background-color: #6b1f2a;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.product-content p {
-    color: #666;
-    margin-bottom: 20px;
+.contact-button:hover {
+  background-color: #d4af37;
+  color: #2b1a10;
 }
 
-/* Shop Button */
-.shop-btn {
-    background: transparent;
-    border: 2px solid #222;
-    color: #222;
-    padding: 10px 34px;
-    border-radius: 40px;
-    font-weight: 600;
-    transition: .35s ease;
-}
+/* Responsive */
+@media (max-width: 768px) {
+  .hero_outer,
+  .hero__container {
+    min-height: 420px;
+  }
 
-.shop-btn:hover {
-    background: #222;
-    color: white;
+  .hero__description {
+    font-size: 1rem;
+  }
+
+  .hair-card {
+    height: 260px;
+  }
+
+  .product-image {
+    max-height: 350px;
+  }
 }

@@ -1,8 +1,8 @@
 import React from "react";
-import colorfrontal from "../../front/images1/colorfrontal.png";
-import colorwig from "../../front/images1/colorwig.png";
-import colordye from "../../front/images1/hairdye.png";
-import backgroundvmc from "../../front/images1/backgroundvmv.png";
+import transportation from "../../front/images1/transportation.png";
+import houseKeeping from "../../front/images1/houseKeeping.png";
+import mealPrep from "../../front/images1/mealPrep.png";
+import backgroundvmc from "../../front/images1/logins.png";
 import "../../styles/vmc.css";
 
 export const Vmc = () => {
@@ -21,7 +21,7 @@ export const Vmc = () => {
         <div className="row align-items-center mb-5">
           <div className="col-md-6 text-center mb-4 mb-md-0">
             <img
-              src={colorfrontal}
+              src={transportation}
               alt="Color Frontals"
               className="img-fluid rounded shadow image-effect"
               style={{ maxWidth: "90%" }}
@@ -29,14 +29,14 @@ export const Vmc = () => {
           </div>
 
           <div className="col-md-6">
-            <h2 className="fw-bold mb-3">Luxury Color Frontals</h2>
+            <h2 className="fw-bold mb-3">Safe & Reliable Transportation</h2>
 
-            <p className="text-muted fs-5">
-              Complete your look with our premium HD and transparent color
-              frontals. Available in beautiful natural and vibrant shades,
-              designed to blend seamlessly while delivering a flawless,
-              salon-quality finish.
-            </p>
+          <p className="text-muted fs-5">
+           We provide dependable transportation for medical appointments,
+          errands, community outings, and other scheduled activities.
+          Our caring staff ensures every resident travels safely,
+          comfortably, and arrives on time.
+          </p>
           </div>
         </div>
 
@@ -44,7 +44,7 @@ export const Vmc = () => {
         <div className="row align-items-center mb-5 flex-md-row-reverse">
           <div className="col-md-6 text-center mb-4 mb-md-0">
             <img
-              src={colorwig}
+              src={houseKeeping}
               alt="Color Wigs"
               className="img-fluid rounded shadow image-effect"
               style={{ maxWidth: "90%" }}
@@ -52,14 +52,14 @@ export const Vmc = () => {
           </div>
 
           <div className="col-md-6">
-            <h2 className="fw-bold mb-3">Premium Color Wigs</h2>
+            <h2 className="fw-bold mb-3">Professional Housekeeping</h2>
 
-            <p className="text-muted fs-5">
-              Express your personality with our collection of luxury color wigs.
-              From bold reds and vibrant blues to elegant blondes and rich
-              brunettes, every wig is crafted using premium-quality fibers or
-              100% human hair.
-            </p>
+          <p className="text-muted fs-5">
+            A clean, organized, and comfortable home is essential to
+            our residents' well-being. Our housekeeping services help
+            maintain a safe, welcoming environment where every resident
+            can relax and feel at home.
+          </p>
           </div>
         </div>
 
@@ -67,7 +67,7 @@ export const Vmc = () => {
         <div className="row align-items-center">
           <div className="col-md-6 text-center mb-4 mb-md-0">
             <img
-              src={colordye}
+              src={mealPrep}
               alt="Hair Dye"
               className="img-fluid rounded shadow image-effect"
               style={{ maxWidth: "90%" }}
@@ -75,14 +75,14 @@ export const Vmc = () => {
           </div>
 
           <div className="col-md-6">
-            <h2 className="fw-bold mb-3">Professional Hair Dye Collection</h2>
+            <h2 className="fw-bold mb-3">Nutritious Meal Preparation</h2>
 
-            <p className="text-muted fs-5">
-              Discover vibrant, long-lasting hair color with our professional
-              hair dye collection. Whether you're looking for classic natural
-              shades or bold fashion colors, our formulas provide brilliant
-              shine, rich pigmentation, and healthy-looking results.
-            </p>
+          <p className="text-muted fs-5">
+          Fresh, balanced meals are thoughtfully prepared each day to
+          meet the dietary needs and personal preferences of every
+          resident. We believe that good nutrition plays an important
+          role in promoting health, comfort, and overall quality of life.
+        </p>
           </div>
         </div>
 

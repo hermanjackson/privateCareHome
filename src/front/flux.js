@@ -1,9 +1,9 @@
 
 
 
-import image12 from "../front/images1/hairproducts.png"
-import image13 from "../front/images1/frontals.jpg"
-import image15 from "../front/images1/wigs.jpg"
+import image12 from "../front/images1/thirtyday.png"
+import image13 from "../front/images1/threetosix.png"
+import image15 from "../front/images1/twelvemonths.png"
 
 
 const  getState = ({ getStore, getActions, setStore }) => {
@@ -16,21 +16,21 @@ const  getState = ({ getStore, getActions, setStore }) => {
 				
 				{
 					id:2,
-					label:"hairproducts",
-					description:"amazing hair products ",
+					label:"30 day living",
+					description:"plans for 30 days  ",
 					image:image12
 				},
 				{
 					id:3,
-					label:"frontals",
-					description:" luxury frontals ",
+					label:"3-6 months",
+					description:" plans for 3 - 6 months ",
 					image:image13
 				},
 				
 				{
 					id:5,
-					label:"wigs",
-					description:" luxury wigs ",
+					label:"12 plus living arraingements",
+					description:" we offer livinf arraingements for twelve plus  ",
 					image:image15
 				},
 				

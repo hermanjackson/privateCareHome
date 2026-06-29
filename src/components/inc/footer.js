@@ -24,15 +24,15 @@ export const Footer = () => {
             letterSpacing: "2px",
           }}
         >
-          SAIR
+          private care home
         </h2>
 
         <p className="text-light mt-3">
-          Premium Hair Bundles, Frontals, Wigs,
-          Hair Care Products and Beauty Essentials.
-          Luxury quality designed to help you
-          look and feel your best.
-        </p>
+  Experience exceptional private care in a welcoming home where
+  compassion meets comfort. Our dedicated caregivers provide
+  personalized support designed to enhance independence,
+  well-being, and quality of life.
+</p>
       </div>
 
       {/* Shop */}
@@ -51,25 +51,25 @@ export const Footer = () => {
 
           <li className="mb-2">
             <Link to="/shop-all" className="footer-link">
-              Shop All
+              Services
             </Link>
           </li>
 
           <li className="mb-2">
             <Link to="/wig" className="footer-link">
-              Wigs
+              Living arraigments
             </Link>
           </li>
 
           <li className="mb-2">
             <Link to="/bundle" className="footer-link">
-              Hair Bundles
+              house keeping
             </Link>
           </li>
 
           <li className="mb-2">
             <Link to="/products" className="footer-link">
-              Hair Products
+              transportation
             </Link>
           </li>
 
@@ -105,7 +105,7 @@ export const Footer = () => {
 
           <li className="mt-3">
             <strong>Email</strong><br />
-            support@sairhair.com
+            support@.com
           </li>
 
           <li className="mt-2">
@@ -123,7 +123,7 @@ export const Footer = () => {
 
     <div className="text-center">
       <small style={{ color: "#aaa" }}>
-        © {new Date().getFullYear()} SAIR Hair Bundles & Products.
+        © {new Date().getFullYear()} essense of love private care home.
         All Rights Reserved.
       </small>
     </div>

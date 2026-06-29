@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import login from "./images1/login.png";
+import login from "./images1/logins.png";
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

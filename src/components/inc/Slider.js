@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel } from "react-bootstrap";
-import image1 from '../../front/images1/carousel1.png';
-import image2 from '../../front/images1/carousel2.png';
-import image3 from '../../front/images1/carousel3.png';
+import image1 from "../../front/images1/carousel1.png";
+import image2 from "../../front/images1/caorusel2.png"; // if that's really the filename
+import image3 from "../../front/images1/carousel3.png";
 import "../../styles/slider.css";
 
 export const Slider = () => {
   const slides = [
-    { image: image1, title: 'Shop Now' },
-    { image: image2, title: 'Shop Now' },
-    { image: image3, title: 'Shop Now' }
+    { image: image1, title: 'Learn More' },
+    { image: image2, title: 'Learn More' },
+    { image: image3, title: 'Learn More' }
   ];
 
   const overlayStyle = {
@@ -77,7 +77,7 @@ return (
 
           <Link to="/Contact">
             <button className="hero-shop-btn">
-              Shop Now
+              learn more
             </button>
           </Link>
         </div>

@@ -12,19 +12,19 @@ export const Aboutus = () => {
 
 const cards = [
   {
-    title: "Luxury Hair Collections",
+    title: "Compassionate Personalized Care",
     content:
-      "We offer premium-quality hair bundles, frontals, closures, and wigs designed to provide beauty, confidence, and long-lasting style.",
+      "Every resident is unique. We provide individualized care plans designed to promote independence, dignity, comfort, and overall well-being in a warm family-like environment.",
   },
   {
-    title: "Premium Hair Products",
+    title: "Safe & Comfortable Living",
     content:
-      "Our carefully selected shampoos, conditioners, oils, serums, and styling products help keep your hair healthy, soft, and beautiful every day.",
+      "Our private care home offers a clean, secure, and welcoming atmosphere where residents can feel at home while receiving professional support from experienced caregivers.",
   },
   {
-    title: "Exceptional Customer Care",
+    title: "Dedicated Support Services",
     content:
-      "Your satisfaction is our priority. Our team is committed to providing outstanding service, fast support, and a luxury shopping experience.",
+      "From personal care assistance and medication reminders to meal preparation, housekeeping, transportation, and companionship, we are committed to providing quality care every day.",
   },
 ];
 
@@ -47,15 +47,15 @@ return (
         className="text-center mb-5"
       >
         <h1
-          style={{
-            fontSize: "3.5rem",
-            fontWeight: "700",
-            color: "#fff",
-            textShadow: "0 2px 10px rgba(0,0,0,.55)",
-          }}
-        >
-          About Us
-        </h1>
+        style={{
+        fontSize: "3.5rem",
+        fontWeight: "700",
+        color: "#fff",
+          textShadow: "0 2px 10px rgba(0,0,0,.55)",
+         }}
+>
+        Welcome to Essence of Love
+      </h1>
 
         <div
           style={{
@@ -68,19 +68,23 @@ return (
         />
 
         <p
-          style={{
-            maxWidth: "800px",
-            margin: "0 auto",
-            color: "#f5f5f5",
-            fontSize: "1.2rem",
-            lineHeight: "1.9",
-            textShadow: "0 2px 8px rgba(0,0,0,.45)",
-          }}
-        >
-          We believe everyone deserves beautiful, luxurious hair. Our mission is
-          to provide premium-quality hair extensions and professional hair care
-          products that help you look and feel your absolute best.
-        </p>
+  style={{
+    maxWidth: "850px",
+    margin: "0 auto",
+    color: "#f5f5f5",
+    fontSize: "1.2rem",
+    lineHeight: "1.9",
+    textShadow: "0 2px 8px rgba(0,0,0,.45)",
+  }}
+>
+  At <strong>Essence of Love Private Care Home</strong>, we believe
+  every individual deserves to live with dignity, comfort, and
+  respect. Our mission is to provide compassionate, personalized
+  care in a safe and welcoming home where residents feel valued,
+  supported, and treated like family. We are committed to enhancing
+  quality of life by delivering dependable care that promotes
+  independence, peace of mind, and overall well-being.
+</p>
       </motion.div>
 
       <div className="row">
@@ -149,7 +153,7 @@ return (
               letterSpacing: "1px",
             }}
           >
-            Contact Us
+            Schedule a Tour
           </motion.button>
         </Link>
       </div>

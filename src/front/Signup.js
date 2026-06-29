@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import login from "./images1/login.png"; // Change the path if yours is different
+import login from "./images1/signin.png"; // Change the path if yours is different
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
