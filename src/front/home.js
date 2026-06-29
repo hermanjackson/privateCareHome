@@ -50,8 +50,7 @@ export const Home = () => {
             <img src={wig1} alt="Frontal Wigs" className="hair-card-img" />
 
             <div className="hair-card-overlay">
-             <h2>Personalized Care</h2>
-            <p>Providing compassionate support with dignity, comfort, and respect.</p>
+            
             <span>Learn More</span>
             </div>
           </div>
@@ -64,8 +63,8 @@ export const Home = () => {
             <img src={wig2} alt="Single Bundles" className="hair-card-img" />
 
             <div className="hair-card-overlay">
-              <h2>Safe & Comfortable Living</h2>
-              <p>A peaceful home where residents feel secure, valued, and cared for every day.</p>
+             
+             
               <span>Learn More</span>
             </div>
           </div>
