@@ -35,18 +35,6 @@ const captionStyle = {
   color: "#fff",
 };
 
-const buttonStyle = {
-  marginTop: "1rem",
-  padding: "12px 38px",
-  backgroundColor: "transparent",
-  border: "2px solid #d4af37",
-  borderRadius: "40px",
-  color: "#fff",
-  fontSize: "1.1rem",
-  fontWeight: "700",
-  cursor: "pointer",
-  letterSpacing: "1px",
-};
 
 return (
   <Carousel
