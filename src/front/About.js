@@ -10,7 +10,7 @@ export const Aboutus = () => {
   visible: { opacity: 1, y: 0 },
 };
 
-const cards = [
+/* const cards = [
   {
     title: "Compassionate Personalized Care",
     content:
@@ -26,7 +26,7 @@ const cards = [
     content:
       "From personal care assistance and medication reminders to meal preparation, housekeeping, transportation, and companionship, we are committed to providing quality care every day.",
   },
-];
+]; */
 
 return (
   <section
@@ -39,7 +39,7 @@ return (
       minHeight: "100vh",
     }}
   >
-    <div className="container">
+   {/*  <div className="container">
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ return (
         Welcome to Essence of Love
       </h1>
 
-        <div
+      <div
           style={{
             width: "90px",
             height: "4px",
@@ -157,7 +157,7 @@ return (
           </motion.button>
         </Link>
       </div>
-    </div>
+    </div> */}
   </section>
  );
 };
